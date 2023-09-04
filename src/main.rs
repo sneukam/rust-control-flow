@@ -9,7 +9,7 @@ fn main() {
 
     let x: i32 = 5;
 
-    let y = if x == 5 {5} else {-1};
+    let y: i32 = if x == 5 {5} else {-1};
     println!("y = {y}");
 
     billion_iterations();
@@ -23,13 +23,15 @@ fn billion_iterations() {
     let now = Instant::now();
     let mut z: u64 = 0;
 
-     loop {
+    let num_iterations: u64 = loop {
         z += 1;
-        if z == 1_000_000_000_000 {
+        if z == 1_000_000_000 {
             let elapsed = now.elapsed().as_secs();
             println!("1 billion!");
             println!("time elapsed = {elapsed} secs");
-            break;
+            break z;
         }        
-    }
+    };
+
+    println!("num iterations = {num_iterations}");
 }
