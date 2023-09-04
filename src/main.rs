@@ -14,6 +14,8 @@ fn main() {
 
     some_iterations();
     loop_lables();
+    while_loop();
+    array_loop();
 }
 
 /**
@@ -59,4 +61,27 @@ fn loop_lables() {
     }
 
     println!("end count. count = {count}");
+}
+
+fn while_loop() {
+    let mut countdown = 5;
+    while countdown > 0 {
+        println!("{countdown}");
+        countdown -= 1;
+    }
+    println!("LIFTOFF!!");
+}
+
+fn array_loop() {
+    let a: [i32; 5] = [10, 20, 30, 40, 50];
+    let mut index: usize = 0;
+//     while index < 5 {
+//         println!("The value of a is {}", a[index]);
+//         index += 1;
+//     }
+
+    // a better implementation of looping over values in an array
+    for val in a {
+        println!("the value is {val}");
+    }
 }
